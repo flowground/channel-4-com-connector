@@ -1,0 +1,1195 @@
+{
+    "title": "Channel 4",
+    "description": "This is the place to come for all the technical details you need to power your applications with Channel 4's deep programmes data.",
+    "docsUrl": "http://developer.channel4.com/docs/read/ProgrammesAPIGuide",
+    "url": "https://api.apis.guru/v2/specs/channel4.com/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://channel4.com/pmlsd",
+                    "https://channel4.com/pmlsd",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apikey": {
+                "label": "apikey (apikey)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "action_4oD_Browse_by_Date_Feed": {
+            "main": "./lib/actions/action_4oD_Browse_by_Date_Feed.js",
+            "title": "4oD Browse by Date Feed",
+            "description": "Information of daily broadcast content available on 4oD, according to \n  broadcast date\n\n  http://api.channel4.com/pmlsd/4od/episode-list/date/[yyyy]/[mm]/[dd].atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/4od/episode-list/date/2010/11/28.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Browse_by_Date_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Most_Popular_Episodes_Feed": {
+            "main": "./lib/actions/action_4oD_Most_Popular_Episodes_Feed.js",
+            "title": "4oD Most Popular Episodes Feed",
+            "description": "Information of the most popular content available on 4oD, according to user \n  data driven.\n\n  http://api.channel4.com/pmlsd/4od/episode-list/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/4od/episode-list/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Most_Popular_Episodes_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Clips_Catch_Up_Feed": {
+            "main": "./lib/actions/action_4oD_Clips_Catch_Up_Feed.js",
+            "title": "4oD Clips Catch Up Feed",
+            "description": "A feed containing metadata about short-form content relating to 4oD Episodes \n  recently added to 4oD based on linear transmission. The entries for the \n  Clips Landing Feed contain references to each short-form asset. It will \n  return up to 20 entries.\n\n  http://api.channel4.com/pmlsd/4od/recently-added/videos.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/4od/episode-list/videos.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Clips_Catch_Up_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "A_to_Z_Landing_Feed": {
+            "main": "./lib/actions/A_to_Z_Landing_Feed.js",
+            "title": "A to Z Landing Feed",
+            "description": "Lists Channel 4 programmes alphabetically from A to Z, providing the same \n  functionality and information as is available in the A to Z section of the \n  Channel 4 Programmes page, http://www.channel4.com/programmes.\n\n  http://api.channel4.com/pmlsd/atoz.atom\n\n  http://api.channel4.com/pmlsd/atoz.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/A_to_Z_Landing_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "A_to_Z_Letter_Feed": {
+            "main": "./lib/actions/A_to_Z_Letter_Feed.js",
+            "title": "A to Z Letter Feed",
+            "description": "Lists Channel 4 programmes whose names begin with the associated letter.\n\n  http://api.channel4.com/pmlsd/atoz/start_letter.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/atoz/a.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/A_to_Z_Letter_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "A_to_Z_Letter_Feed_2_": {
+            "main": "./lib/actions/A_to_Z_Letter_Feed_2_.js",
+            "title": "A to Z Letter Feed(2)",
+            "description": "Lists Channel 4 programmes whose names begin with the associated letter.\n\n  http://api.channel4.com/pmlsd/atoz/start_letter/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/atoz/a.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/A_to_Z_Letter_Feed_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Title_All_Brands_Feed": {
+            "main": "./lib/actions/action_4oD_Title_All_Brands_Feed.js",
+            "title": "4oD Title All Brands Feed",
+            "description": "Lists all Channel 4 programmes available on 4oD.  By default, the programmes \n  are listed by title in alphabetical order (case unsensitive).\n\n  http://api.channel4.com/pmlsd/brands/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/brands/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Title_All_Brands_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Title_All_Brands_Feed_2_": {
+            "main": "./lib/actions/action_4oD_Title_All_Brands_Feed_2_.js",
+            "title": "4oD Title All Brands Feed(2)",
+            "description": "Lists all Channel 4 programmes available on 4oD.  By default, the programmes \n  are listed by title in alphabetical order (case unsensitive).\n\n  http://api.channel4.com/pmlsd/brands/4od/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/brands/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Title_All_Brands_Feed_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Popular_All_Brands_Feed": {
+            "main": "./lib/actions/action_4oD_Popular_All_Brands_Feed.js",
+            "title": "4oD Popular All Brands Feed",
+            "description": "Lists all Channel 4 programmes available on 4oD by popularity considering \n  the data gathered within the last 7 days.\n\n  http://api.channel4.com/pmlsd/brands/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/brands/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Popular_All_Brands_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Popular_All_Brands_Feed_2_": {
+            "main": "./lib/actions/action_4oD_Popular_All_Brands_Feed_2_.js",
+            "title": "4oD Popular All Brands Feed(2)",
+            "description": "Lists all Channel 4 programmes available on 4oD by popularity considering \n  the data gathered within the last 7 days.\n\n  http://api.channel4.com/pmlsd/brands/4od/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/brands/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Popular_All_Brands_Feed_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Popular_Brands_Feed": {
+            "main": "./lib/actions/Popular_Brands_Feed.js",
+            "title": "Popular Brands Feed",
+            "description": "Lists all Channel 4 programmes by popularity considering the data gathered \n  within the last 7 days.\n\n  http://api.channel4.com/pmlsd/brands/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/brands/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Popular_Brands_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Popular_Brands_Feed_2_": {
+            "main": "./lib/actions/Popular_Brands_Feed_2_.js",
+            "title": "Popular Brands Feed(2)",
+            "description": "Lists all Channel 4 programmes by popularity considering the data gathered \n  within the last 7 days.\n\n  http://api.channel4.com/pmlsd/brands/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/brands/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Popular_Brands_Feed_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Categories_Landing_Feed": {
+            "main": "./lib/actions/Categories_Landing_Feed.js",
+            "title": "Categories Landing Feed",
+            "description": "Lists Channel 4 programmes by category (/ tag).\n\n  http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Categories_Landing_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_TX_Date": {
+            "main": "./lib/actions/All_Programmes_by_TX_Date.js",
+            "title": "All Programmes by TX Date",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_TX_Date.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_TX_Date": {
+            "main": "./lib/actions/action_4oD_Programmes_by_TX_Date.js",
+            "title": "4oD Programmes by TX Date",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_TX_Date.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_TX_Date_4_": {
+            "main": "./lib/actions/action_4oD_Programmes_by_TX_Date_4_.js",
+            "title": "4oD Programmes by TX Date(4)",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/4od/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_TX_Date_4_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Most_Popular_Brands_Feed": {
+            "main": "./lib/actions/Most_Popular_Brands_Feed.js",
+            "title": "Most Popular Brands Feed",
+            "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Most_Popular_Brands_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Most_Popular_Brands_Feed_5_": {
+            "main": "./lib/actions/Most_Popular_Brands_Feed_5_.js",
+            "title": "Most Popular Brands Feed(5)",
+            "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/4od/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Most_Popular_Brands_Feed_5_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_Title": {
+            "main": "./lib/actions/action_4oD_Programmes_by_Title.js",
+            "title": "4oD Programmes by Title",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/4od/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_Title.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_Title_4_": {
+            "main": "./lib/actions/action_4oD_Programmes_by_Title_4_.js",
+            "title": "4oD Programmes by Title(4)",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/4od/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_Title_4_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_TX_Date_2_": {
+            "main": "./lib/actions/All_Programmes_by_TX_Date_2_.js",
+            "title": "All Programmes by TX Date(2)",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel].atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_TX_Date_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_TX_Date_2_": {
+            "main": "./lib/actions/action_4oD_Programmes_by_TX_Date_2_.js",
+            "title": "4oD Programmes by TX Date(2)",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_TX_Date_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_TX_Date_5_": {
+            "main": "./lib/actions/action_4oD_Programmes_by_TX_Date_5_.js",
+            "title": "4oD Programmes by TX Date(5)",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_TX_Date_5_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Most_Popular_Brands_Feed_3_": {
+            "main": "./lib/actions/Most_Popular_Brands_Feed_3_.js",
+            "title": "Most Popular Brands Feed(3)",
+            "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Most_Popular_Brands_Feed_3_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Most_Popular_Brands_Feed_7_": {
+            "main": "./lib/actions/Most_Popular_Brands_Feed_7_.js",
+            "title": "Most Popular Brands Feed(7)",
+            "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Most_Popular_Brands_Feed_7_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_Title_2_": {
+            "main": "./lib/actions/action_4oD_Programmes_by_Title_2_.js",
+            "title": "4oD Programmes by Title(2)",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_Title_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_Title_5_": {
+            "main": "./lib/actions/action_4oD_Programmes_by_Title_5_.js",
+            "title": "4oD Programmes by Title(5)",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_Title_5_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_TX_Date_5_": {
+            "main": "./lib/actions/All_Programmes_by_TX_Date_5_.js",
+            "title": "All Programmes by TX Date(5)",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_TX_Date_5_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_Title_2_": {
+            "main": "./lib/actions/All_Programmes_by_Title_2_.js",
+            "title": "All Programmes by Title(2)",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_Title_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_Title_5_": {
+            "main": "./lib/actions/All_Programmes_by_Title_5_.js",
+            "title": "All Programmes by Title(5)",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_Title_5_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_TX_Date_3_": {
+            "main": "./lib/actions/All_Programmes_by_TX_Date_3_.js",
+            "title": "All Programmes by TX Date(3)",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_TX_Date_3_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_TX_Date_3_": {
+            "main": "./lib/actions/action_4oD_Programmes_by_TX_Date_3_.js",
+            "title": "4oD Programmes by TX Date(3)",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_TX_Date_3_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_TX_Date_6_": {
+            "main": "./lib/actions/action_4oD_Programmes_by_TX_Date_6_.js",
+            "title": "4oD Programmes by TX Date(6)",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_TX_Date_6_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Most_Popular_Brands_Feed_4_": {
+            "main": "./lib/actions/Most_Popular_Brands_Feed_4_.js",
+            "title": "Most Popular Brands Feed(4)",
+            "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Most_Popular_Brands_Feed_4_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Most_Popular_Brands_Feed_8_": {
+            "main": "./lib/actions/Most_Popular_Brands_Feed_8_.js",
+            "title": "Most Popular Brands Feed(8)",
+            "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Most_Popular_Brands_Feed_8_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_Title_3_": {
+            "main": "./lib/actions/action_4oD_Programmes_by_Title_3_.js",
+            "title": "4oD Programmes by Title(3)",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_Title_3_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Programmes_by_Title_6_": {
+            "main": "./lib/actions/action_4oD_Programmes_by_Title_6_.js",
+            "title": "4oD Programmes by Title(6)",
+            "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Programmes_by_Title_6_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_TX_Date_6_": {
+            "main": "./lib/actions/All_Programmes_by_TX_Date_6_.js",
+            "title": "All Programmes by TX Date(6)",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_TX_Date_6_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_Title_3_": {
+            "main": "./lib/actions/All_Programmes_by_Title_3_.js",
+            "title": "All Programmes by Title(3)",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_Title_3_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_Title_6_": {
+            "main": "./lib/actions/All_Programmes_by_Title_6_.js",
+            "title": "All Programmes by Title(6)",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_Title_6_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_TX_Date_4_": {
+            "main": "./lib/actions/All_Programmes_by_TX_Date_4_.js",
+            "title": "All Programmes by TX Date(4)",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_TX_Date_4_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Most_Popular_Brands_Feed_2_": {
+            "main": "./lib/actions/Most_Popular_Brands_Feed_2_.js",
+            "title": "Most Popular Brands Feed(2)",
+            "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Most_Popular_Brands_Feed_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Most_Popular_Brands_Feed_6_": {
+            "main": "./lib/actions/Most_Popular_Brands_Feed_6_.js",
+            "title": "Most Popular Brands Feed(6)",
+            "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Most_Popular_Brands_Feed_6_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_Title": {
+            "main": "./lib/actions/All_Programmes_by_Title.js",
+            "title": "All Programmes by Title",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_Title.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "All_Programmes_by_Title_4_": {
+            "main": "./lib/actions/All_Programmes_by_Title_4_.js",
+            "title": "All Programmes by Title(4)",
+            "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/All_Programmes_by_Title_4_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Collections_Feed_2_": {
+            "main": "./lib/actions/Collections_Feed_2_.js",
+            "title": "Collections Feed(2)",
+            "description": "Collections are editorially controlled groups of brands, series, episodes or \n  other collections used for promotion and discovery of content. A SIMPLE \n  collection can contain an assortment of Brands, Series, Episodes or Freeform \n  items. A GROUP collection contains other collections.\n\n  http://api.channel4.com/pmlsd/collections/collection_name.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/collections/4od-home-promo/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Collections_Feed_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Collections_Feed": {
+            "main": "./lib/actions/Collections_Feed.js",
+            "title": "Collections Feed",
+            "description": "Collections are editorially controlled groups of brands, series, episodes or \n  other collections used for promotion and discovery of content. A SIMPLE \n  collection can contain an assortment of Brands, Series, Episodes or Freeform \n  items. A GROUP collection contains other collections.\n\n  http://api.channel4.com/pmlsd/collections/collection_name/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/collections/4od-home-promo/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Collections_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Flattened_Collection_Feed_2_": {
+            "main": "./lib/actions/Flattened_Collection_Feed_2_.js",
+            "title": "Flattened Collection Feed(2)",
+            "description": "The Flattened Collections Feed is only applicable for GROUP collections and \n  its purpose is mainly return 3 items (BRAND, SERIES or EPSIODE) of each of \n  the simple collections assigned to the GROUP.\n\n  http://api.channel4.com/pmlsd/collections/collection_name/flattened.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/collections/4od-home-promo/flattened/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Flattened_Collection_Feed_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Flattened_Collection_Feed": {
+            "main": "./lib/actions/Flattened_Collection_Feed.js",
+            "title": "Flattened Collection Feed",
+            "description": "The Flattened Collections Feed is only applicable for GROUP collections and \n  its purpose is mainly return 3 items (BRAND, SERIES or EPSIODE) of each of \n  the simple collections assigned to the GROUP.\n\n  http://api.channel4.com/pmlsd/collections/collection_name/flattened/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/collections/4od-home-promo/flattened/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Flattened_Collection_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Coming_Soon_feed": {
+            "main": "./lib/actions/Coming_Soon_feed.js",
+            "title": "Coming Soon feed",
+            "description": "Coming Soon feed display a list of episodes coming soon to linear TV so that \n  I can promote new Channel 4 content.\n\n  http://api.channel4.com/pmlsd/coming-soon.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/coming-soon.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Coming_Soon_feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Coming_Soon_feed_2_": {
+            "main": "./lib/actions/Coming_Soon_feed_2_.js",
+            "title": "Coming Soon feed(2)",
+            "description": "Coming Soon feed display a list of episodes coming soon to linear TV so that \n  I can promote new Channel 4 content.\n\n  http://api.channel4.com/pmlsd/coming-soon/[category].atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/coming-soon.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Coming_Soon_feed_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Programme_Feed": {
+            "main": "./lib/actions/Programme_Feed.js",
+            "title": "Programme Feed",
+            "description": "A feed containing all long-form content currently or previously available \n  for a specified Programme Id. The entries for the Programme feed contain \n  references to long-form assets for each platform.\n\n  http://api.channel4.com/pmlsd/programme/[programme-id].atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/programme/33881-001/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Programme_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Search_Feed": {
+            "main": "./lib/actions/Search_Feed.js",
+            "title": "Search Feed",
+            "description": "Lists all Channel 4 programmes where title (brand name) matching the search \n  term. Matches are made from the beginning of individual words in the title.\n\n  http://api.channel4.com/pmlsd/search.atom?q=search-term&apikey=xxx\n\n  http://api.channel4.com/pmlsd/search.atom?q=the+it+crowd&apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Search_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Search_Feed_3_": {
+            "main": "./lib/actions/Search_Feed_3_.js",
+            "title": "Search Feed(3)",
+            "description": "Lists all Channel 4 programmes where title (brand name) matching the search \n  term. Matches are made from the beginning of individual words in the title.\n\n  http://api.channel4.com/pmlsd/search/page-{pageno}.atom?q=search-term&apikey=xxx\n\n  http://api.channel4.com/pmlsd/search.atom?q=the+it+crowd&apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Search_Feed_3_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Search_Feed_2_": {
+            "main": "./lib/actions/Search_Feed_2_.js",
+            "title": "Search Feed(2)",
+            "description": "Lists all Channel 4 programmes where title (brand name) matching the search \n  term. Matches are made from the beginning of individual words in the title.\n\n  http://api.channel4.com/pmlsd/search/search-term.atom?apikey=xxx\n\n  http://api.channel4.com/pmlsd/search.atom?q=the+it+crowd&apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Search_Feed_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Search_Feed_4_": {
+            "main": "./lib/actions/Search_Feed_4_.js",
+            "title": "Search Feed(4)",
+            "description": "Lists all Channel 4 programmes where title (brand name) matching the search \n  term. Matches are made from the beginning of individual words in the title.\n\n  http://api.channel4.com/pmlsd/search/search-term/page-{pageno}.atom?apikey=xxx\n\n  http://api.channel4.com/pmlsd/search.atom?q=the+it+crowd&apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Search_Feed_4_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TV_Listings_Feed": {
+            "main": "./lib/actions/TV_Listings_Feed.js",
+            "title": "TV Listings Feed",
+            "description": "EPG Information of daily broadcast content aired per channels, according to \n  broadcast date\n\n  http://api.channel4.com/pmlsd/tv-listings/daily/[yyyy]/[mm]/[dd].atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/tv-listings/daily/2010/11/28.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TV_Listings_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TV_Listings_Feed_2_": {
+            "main": "./lib/actions/TV_Listings_Feed_2_.js",
+            "title": "TV Listings Feed(2)",
+            "description": "EPG Information of daily broadcast content aired per channels, according to \n  broadcast date\n\n  http://api.channel4.com/pmlsd/tv-listings/daily/[yyyy]/[mm]/[dd]/[channel].atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/tv-listings/daily/2010/11/28.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TV_Listings_Feed_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Hub_Feed": {
+            "main": "./lib/actions/Hub_Feed.js",
+            "title": "Hub Feed",
+            "description": "The basis for all brand information\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/the-it-crowd.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Hub_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "action_4oD_Feed": {
+            "main": "./lib/actions/action_4oD_Feed.js",
+            "title": "4oD Feed",
+            "description": "A feed containing all available on-demand long-form content for a specified \n  brand. The entries for the 4oD feed contain references to each long-form \n  asset for a brand, ordered by series number and episode number.\n\n  http://api.channel4.com/pmlsd/[brand-web-safe-title]/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/the-it-crowd/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/action_4oD_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Brand_EPG_Atom_Feed": {
+            "main": "./lib/actions/Brand_EPG_Atom_Feed.js",
+            "title": "Brand EPG Atom Feed",
+            "description": "This feed contains metadata about upcoming electronic programme guide (EPG) \n  information for a brand. The entry details upcoming transmission slots for \n  this brand.\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title/epg.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/the-simpsons/epg.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Brand_EPG_Atom_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Episode_Guide_Feed_Series_Landing": {
+            "main": "./lib/actions/Episode_Guide_Feed_Series_Landing.js",
+            "title": "Episode Guide Feed Series Landing",
+            "description": "A feed containing metadata about all series for a specified brand. The \n  entries in this feed contain references to each of the series (where \n  metadata has been published), with some convenient links.\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title/episode-guide.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/father-ted/episode-guide.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Episode_Guide_Feed_Series_Landing.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Episode_Guide_Feed_Series_Detail": {
+            "main": "./lib/actions/Episode_Guide_Feed_Series_Detail.js",
+            "title": "Episode Guide Feed Series Detail",
+            "description": "A feed containing metadata about all the episodes for a specific series. The \n  entries in this feed contain references to each of the episodes (where \n  metadata has been published), with some convenient links.\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title/episode-guide/series-series_number.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/chelmsford-123/episode-guide/series-1.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Episode_Guide_Feed_Series_Detail.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Episode_Guide_Feed_Episode_Detail": {
+            "main": "./lib/actions/Episode_Guide_Feed_Episode_Detail.js",
+            "title": "Episode Guide Feed Episode Detail",
+            "description": "A feed containing metadata about a specified episode. (This feed does not \n  contain any entries and only contains a feed element regarding this \n  episode.)\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title/episode-guide/series-series_number/episode-episode_number.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/the-it-crowd/episode-guide/series-1/episode-1.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Episode_Guide_Feed_Episode_Detail.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Clips_Landing_Feed_Brand_Series_and_Episode_Levels": {
+            "main": "./lib/actions/Clips_Landing_Feed_Brand_Series_and_Episode_Levels.js",
+            "title": "Clips Landing Feed Brand Series and Episode Levels",
+            "description": "A feed containing metadata about all the short-form (clip) videos. The clips \n  feed can be accessed at different levels: the content is then filtered \n  depending on the level, but the structure is identical.When accessed: from \n  the top, the feed contains all the clips for the brand;  at series level, \n  the feed contains only clips from the series; and  at episode level, the \n  feed contains only clips for the episode (and is very unlikely to require \n  pagination). The entries for the Clips Landing Feed contain references to \n  each short-form asset.\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title/videos/all.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/peep-show/videos.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Clips_Landing_Feed_Brand_Series_and_Episode_Levels.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Clips_Landing_Feed_Brand_Series_and_Episode_Levels_2_": {
+            "main": "./lib/actions/Clips_Landing_Feed_Brand_Series_and_Episode_Levels_2_.js",
+            "title": "Clips Landing Feed Brand Series and Episode Levels(2)",
+            "description": "A feed containing metadata about all the short-form (clip) videos. The clips \n  feed can be accessed at different levels: the content is then filtered \n  depending on the level, but the structure is identical.When accessed: from \n  the top, the feed contains all the clips for the brand;  at series level, \n  the feed contains only clips from the series; and  at episode level, the \n  feed contains only clips for the episode (and is very unlikely to require \n  pagination). The entries for the Clips Landing Feed contain references to \n  each short-form asset.\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title/videos/series-series_number.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/peep-show/videos.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Clips_Landing_Feed_Brand_Series_and_Episode_Levels_2_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Clips_Landing_Feed_Brand_Series_and_Episode_Levels_3_": {
+            "main": "./lib/actions/Clips_Landing_Feed_Brand_Series_and_Episode_Levels_3_.js",
+            "title": "Clips Landing Feed Brand Series and Episode Levels(3)",
+            "description": "A feed containing metadata about all the short-form (clip) videos. The clips \n  feed can be accessed at different levels: the content is then filtered \n  depending on the level, but the structure is identical.When accessed: from \n  the top, the feed contains all the clips for the brand;  at series level, \n  the feed contains only clips from the series; and  at episode level, the \n  feed contains only clips for the episode (and is very unlikely to require \n  pagination). The entries for the Clips Landing Feed contain references to \n  each short-form asset.\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title/videos/series-series_number/episode-episode_number.atom?apikey=xxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/peep-show/videos.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Clips_Landing_Feed_Brand_Series_and_Episode_Levels_3_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Clip_Detail_Atom_Feed": {
+            "main": "./lib/actions/Clip_Detail_Atom_Feed.js",
+            "title": "Clip Detail Atom Feed",
+            "description": "A feed containing metadata about a single short-form video (clip).\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title/videos/clip-asset-id.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/the-it-crowd/videos/TCGS_CLIP_0000001015.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Clip_Detail_Atom_Feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

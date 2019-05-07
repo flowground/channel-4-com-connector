@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "platform": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "c4",
+                "ps3",
+                "yv",
+                "ios",
+                "fm",
+                "p06",
+                "ctv",
+                "freesat",
+                "android",
+                "samsung"
+            ]
+        },
+        "series_number": {
+            "required": true,
+            "type": "string"
+        },
+        "episode_number": {
+            "required": true,
+            "type": "string"
+        },
+        "brand_web_safe_title": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

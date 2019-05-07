@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "platform": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "c4",
+                "ps3",
+                "yv",
+                "ios",
+                "fm",
+                "p06",
+                "ctv",
+                "freesat",
+                "android",
+                "samsung"
+            ]
+        },
+        "q": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

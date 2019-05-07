@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "platform": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "c4",
+                "ps3",
+                "yv",
+                "ios",
+                "fm",
+                "p06",
+                "ctv",
+                "freesat",
+                "android",
+                "samsung"
+            ]
+        },
+        "yyyy": {
+            "required": true,
+            "type": "string"
+        },
+        "mm": {
+            "required": true,
+            "type": "string"
+        },
+        "dd": {
+            "required": true,
+            "type": "string"
+        },
+        "channel": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "c4",
+                "f4",
+                "e4",
+                "m4",
+                "4m",
+                "4s"
+            ]
+        }
+    }
+}
